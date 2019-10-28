@@ -24,11 +24,19 @@
             ></v-text-field>
           </v-col>
         </v-row>
+        <!-- エンターキーでv-cardを表示したい -->
+        <v-card max-width="344" class="mx-auto">
+          <v-card-title>I'm a title</v-card-title>
+          <v-card-text>I'm card text</v-card-text>
+          <v-card-actions>
+            <v-btn text>Click</v-btn>
+          </v-card-actions>
+        </v-card>
+        <div v-for="todo in todos" :key="todo.name">
+          <p>名前：{{ todo.name }}</p>
+        </div>
       </v-container>
     </v-content>
-    <div v-for="todo in todos" :key="todo.name">
-      <p>名前：{{ todo.name }}</p>
-    </div>
   </v-app>
 </template>
 
