@@ -1,36 +1,49 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-app-bar>
-
+    <div>
+      <v-app-bar app>
+        <v-toolbar-title class="headline text-uppercase">
+          <span class="font-weight-light">Todoアプリ</span>
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn href="#">
+          <span class="mr-2">aplication</span>
+        </v-btn>
+      </v-app-bar>
+    </div>
     <v-content>
-      <HelloWorld/>
+      <v-container>
+        <v-row>
+          <v-col cols="6">
+            <v-text-field v-model="name" :counter="10" label="First name" required></v-text-field>
+          </v-col>
+
+          <v-col cols="6" class="mt-5">
+            <v-btn large color="primary" @click="addTodo">追加</v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-content>
+    <div v-for="todo in todos" :key="todo.name">
+      <p>名前：{{ todo.name }}</p>
+    </div>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
+  name: "App",
   data: () => ({
-    //
+    name: "",
+    todos: []
   }),
+  methods: {
+    addTodo() {
+      this.todos.push({
+        name: this.name
+      });
+      this.name = "";
+    }
+  }
 };
 </script>
