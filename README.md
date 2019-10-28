@@ -1,4 +1,7 @@
 # couragetodo
+さぼり回数をカウントできるアプリです。
+
+
 
 ## Project setup
 ```
