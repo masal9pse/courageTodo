@@ -15,11 +15,13 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <v-text-field v-model="name" :counter="10" label="First name" required></v-text-field>
-          </v-col>
-
-          <v-col cols="6" class="mt-5">
-            <v-btn large color="primary" @click="addTodo">追加</v-btn>
+            <v-text-field
+              v-model="name"
+              :counter="10"
+              label="First name"
+              @keyup.enter="addTodo"
+              required
+            ></v-text-field>
           </v-col>
         </v-row>
       </v-container>
