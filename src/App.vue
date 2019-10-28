@@ -3,11 +3,11 @@
     <div>
       <v-app-bar app>
         <v-toolbar-title class="headline text-uppercase">
-          <span class="font-weight-light">Todoアプリ</span>
+          <span class="font-weight-light">授業さぼりカウントアプリ</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn href="#">
-          <span class="mr-2">aplication</span>
+          <span class="mr-2">ゲームしたい・・・</span>
         </v-btn>
       </v-app-bar>
     </div>
@@ -15,22 +15,18 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <v-text-field
-              v-model="name"
-              :counter="10"
-              label="First name"
-              @keyup.enter="addTodo"
-              required
-            ></v-text-field>
+            <v-text-field v-model="name" :counter="10" label="授業名" @keyup.enter="addTodo" required></v-text-field>
           </v-col>
         </v-row>
         <div v-for="todo in todos" :key="todo.name">
-          <!-- <p>名前：{{ todo.name }}</!-->
           <v-card max-width="344" class="mx-auto">
-            <v-card-title>I'm a title</v-card-title>
-            <v-card-text>I'm card text</v-card-text>
+            <v-card-title>{{todo.name}}</v-card-title>
+            <v-card-text>
+              <v-text-field label="メモ"></v-text-field>
+            </v-card-text>
             <v-card-actions>
-              <v-btn text>Click</v-btn>
+              <v-btn @click="onclick" color="primary">さぼり回数</v-btn>
+              {{ count }}
             </v-card-actions>
           </v-card>
         </div>
@@ -43,6 +39,7 @@
 export default {
   name: "App",
   data: () => ({
+    count: 0,
     name: "",
     todos: []
   }),
@@ -52,6 +49,9 @@ export default {
         name: this.name
       });
       this.name = "";
+    },
+    onclick() {
+      this.count++;
     }
   }
 };
