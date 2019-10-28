@@ -25,8 +25,9 @@
               <v-text-field label="メモ"></v-text-field>
             </v-card-text>
             <v-card-actions>
-              <v-btn @click="onclick" color="primary">さぼり回数</v-btn>
+              <v-btn @click="increment" color="primary">さぼり回数</v-btn>
               {{ count }}
+              <v-btn @click="decrement" color="error">間違え</v-btn>
             </v-card-actions>
           </v-card>
         </div>
@@ -50,8 +51,11 @@ export default {
       });
       this.name = "";
     },
-    onclick() {
+    increment() {
       this.count++;
+    },
+    decrement() {
+      this.count--;
     }
   }
 };
