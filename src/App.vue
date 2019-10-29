@@ -25,8 +25,8 @@
               <v-text-field label="メモ"></v-text-field>
             </v-card-text>
             <v-card-actions>
-              <v-btn @click="increment" color="primary">さぼり回数</v-btn>
-              {{ count }}
+              <v-btn @click="increment" color="primary">さぼり回数: {{ count }}</v-btn>
+
               <v-btn @click="decrement" color="error">間違え</v-btn>
             </v-card-actions>
           </v-card>
@@ -39,11 +39,13 @@
 <script>
 export default {
   name: "App",
-  data: () => ({
-    count: 0,
-    name: "",
-    todos: []
-  }),
+  data: function() {
+    return {
+      count: 0,
+      name: "",
+      todos: []
+    };
+  },
   methods: {
     addTodo() {
       this.todos.push({
@@ -51,6 +53,7 @@ export default {
       });
       this.name = "";
     },
+    //全部に反映されている。
     increment() {
       this.count++;
     },
