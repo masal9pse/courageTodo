@@ -15,19 +15,19 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <v-text-field v-model="name" :counter="10" label="授業名" @keyup.enter="addTodo" required></v-text-field>
+            <v-text-field v-model="name" label="授業名" @keyup.enter="addTodo" required></v-text-field>
           </v-col>
         </v-row>
         <div v-for="todo in todos" :key="todo.name">
-          <v-card max-width="344" class="mx-auto">
+          <v-card card_id="" max-width="344" class="mx-auto">
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
               <v-text-field label="メモ"></v-text-field>
             </v-card-text>
             <v-card-actions>
-              <v-btn @click="increment" color="primary">さぼり回数: {{ count }}</v-btn>
+              <v-btn @click="increment(todo)" color="primary">さぼり回数: {{ todo.count }}</v-btn>
 
-              <v-btn @click="decrement" color="error">間違え</v-btn>
+              <v-btn @click="decrement(todo)" color="error">間違え</v-btn>
             </v-card-actions>
           </v-card>
         </div>
@@ -49,16 +49,17 @@ export default {
   methods: {
     addTodo() {
       this.todos.push({
-        name: this.name
+        name: this.name,
+        count: 0
       });
       this.name = "";
     },
     //全部に反映されている。
-    increment() {
-      this.count++;
+    increment(todo) {
+      todo.count++;
     },
-    decrement() {
-      this.count--;
+    decrement(todo) {
+      todo.count--;
     }
   }
 };
