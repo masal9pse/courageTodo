@@ -6,7 +6,7 @@
           <span class="font-weight-light">授業さぼりカウントアプリ</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn href="#">
+        <v-btn href="#" color="pink">
           <span class="mr-2">ゲームしたい・・・</span>
         </v-btn>
       </v-app-bar>
@@ -19,15 +19,15 @@
           </v-col>
         </v-row>
         <div v-for="todo in todos" :key="todo.name">
-          <v-card card_id="" max-width="344" class="mx-auto">
+          <v-card card_id max-width="344" class="mx-auto">
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
               <v-text-field label="メモ"></v-text-field>
             </v-card-text>
             <v-card-actions>
-              <v-btn @click="increment(todo)" color="primary">さぼり回数: {{ todo.count }}</v-btn>
-
-              <v-btn @click="decrement(todo)" color="error">間違え</v-btn>
+              <v-btn @click="increment(todo)" color="primary">さぼり回数</v-btn>
+              <span>{{ todo.count }}</span>
+              <v-btn @click="decrement(todo)" color="error">間違い（－）</v-btn>
             </v-card-actions>
           </v-card>
         </div>
@@ -48,18 +48,23 @@ export default {
   },
   methods: {
     addTodo() {
-      this.todos.push({
-        name: this.name,
-        count: 0
-      });
+      if (this.name != "") {
+        this.todos.push({
+          name: this.name,
+          count: 0
+        });
+      }
       this.name = "";
     },
-    //全部に反映されている。
     increment(todo) {
       todo.count++;
     },
     decrement(todo) {
-      todo.count--;
+      if (todo.count > 0) {
+        todo.count--;
+      } else {
+        alert("fuck you");
+      }
     }
   }
 };
