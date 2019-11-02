@@ -28,7 +28,7 @@
               <v-btn @click="increment(todo)" color="primary">さぼり回数</v-btn>
               <span>{{ todo.count }}</span>
               <v-btn @click="decrement(todo)" color="error">間違い（－）</v-btn>
-              <v-btn>delete</v-btn>
+              <v-btn @click="deleteItem(index)">削除</v-btn>
             </v-card-actions>
           </v-card>
         </div>
@@ -71,6 +71,9 @@ export default {
       } else {
         alert("fuck you");
       }
+    },
+    deleteItem(index) {
+      this.todos.splice(index, 1);
     }
   }
 };
