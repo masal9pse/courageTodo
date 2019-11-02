@@ -19,7 +19,7 @@
           </v-col>
         </v-row>
         <div v-for="todo in todos" :key="todo.name">
-          <v-card card_id="" max-width="344" class="mx-auto">
+          <v-card card_id max-width="344" class="mx-auto">
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
               <v-text-field label="メモ"></v-text-field>
@@ -59,7 +59,9 @@ export default {
       todo.count++;
     },
     decrement(todo) {
-      todo.count--;
+      if (todo.count > 0) {
+        todo.count--;
+      }
     }
   }
 };
