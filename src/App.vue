@@ -28,6 +28,7 @@
               <v-btn @click="increment(todo)" color="primary">さぼり回数</v-btn>
               <span>{{ todo.count }}</span>
               <v-btn @click="decrement(todo)" color="error">間違い（－）</v-btn>
+              <v-btn @click="deleteItem(index)">削除</v-btn>
             </v-card-actions>
           </v-card>
         </div>
@@ -46,6 +47,9 @@ export default {
       todos: []
     };
   },
+  created() {
+    this.todos = JSON.parse(localStorage.getItem("todos")) || [];
+  },
   methods: {
     addTodo() {
       if (this.name != "") {
@@ -54,6 +58,8 @@ export default {
           count: 0
         });
       }
+      let setJson = JSON.stringify(this.todos);
+      localStorage.setItem("todos", setJson);
       this.name = "";
     },
     increment(todo) {
@@ -65,6 +71,12 @@ export default {
       } else {
         alert("fuck you");
       }
+    },
+    deleteItem(index) {
+      this.todos.splice(index, 1);
+      let setJson = JSON.stringify(this.todos);
+      localStorage.removeItem("todos");
+      localStorage.setItem("todos", setJson);
     }
   }
 };
