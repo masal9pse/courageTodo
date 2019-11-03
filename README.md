@@ -3,6 +3,9 @@
 
 
 
+現状の予定　
+・v-app-bar-nav-iconを開閉できるようにしたい。
+・これらをvuex化したい。
 ## Project setup
 ```
 yarn install
