@@ -7,7 +7,7 @@
             <v-text-field v-model="name" label="授業名" @keyup.enter="addTodo" required></v-text-field>
           </v-col>
         </v-row>
-        <div v-for="todo in todos" :key="todo.name">
+        <div v-for="(todo,index) in todos" :key="todo.name">
           <v-card card_id max-width="344" class="mx-auto">
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
