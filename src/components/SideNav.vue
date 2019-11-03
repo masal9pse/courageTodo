@@ -11,7 +11,7 @@
           </v-list-tile-avatar>
 
           <v-list-tile-content>
-            <v-list-tile-title>Masato</v-list-tile-title>
+            <v-list-tile-title>sample</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -21,12 +21,16 @@
 
         <v-list-tile v-for="item in items" :key="item.title">
           <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <p>{{ item.name }}</p>
           </v-list-tile-action>
 
           <v-list-tile-content>
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
+          <ul>
+            <li>Yamada Taro</li>
+            <li>Yamada Hanako</li>
+          </ul>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -37,7 +41,7 @@
 export default {
   data() {
     return {
-      items: [{ title: "連絡先一覧", icon: "list" }]
+      items: [{ title: "連絡先一覧", name: "list" }]
     };
   }
 };
