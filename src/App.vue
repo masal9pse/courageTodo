@@ -2,13 +2,11 @@
   <v-app>
     <div>
       <v-app-bar app>
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
         <v-toolbar-title class="headline text-uppercase">
-          <span class="font-weight-light">授業さぼりカウントアプリ</span>
+          <span class="font-weight-light">講義さぼりカウントアプリ</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn href="#" color="pink">
-          <span class="mr-2">ゲームしたい・・・</span>
-        </v-btn>
       </v-app-bar>
     </div>
     <v-content>
@@ -68,8 +66,6 @@ export default {
     decrement(todo) {
       if (todo.count > 0) {
         todo.count--;
-      } else {
-        alert("fuck you");
       }
     },
     deleteItem(index) {
