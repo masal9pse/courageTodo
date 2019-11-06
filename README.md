@@ -1,6 +1,6 @@
 # couragetodo
 現状の予定　
-・v-app-bar-nav-iconを開閉できるようにしたい。
+. メモが保存できてないので、ローカルストレージ化したい。
 ・これらをvuex化したい。
 ## Project setup
 ```
