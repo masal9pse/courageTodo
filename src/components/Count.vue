@@ -37,6 +37,7 @@ export default {
   },
   mounted() {
     this.todos = JSON.parse(localStorage.getItem("todos")) || [];
+    this.count = JSON.parse(localStorage.getItem("count")) || [];
   },
   methods: {
     addTodo() {
@@ -48,7 +49,9 @@ export default {
       }
 
       let setJson = JSON.stringify(this.todos);
+      let setCount = JSON.stringify(this.count);
       localStorage.setItem("todos", setJson);
+      localStorage.setItem("count", setCount);
       this.name = "";
     },
     increment(todo) {
