@@ -49,18 +49,20 @@ export default {
       }
 
       let setJson = JSON.stringify(this.todos);
-      let setCount = JSON.stringify(this.count);
       localStorage.setItem("todos", setJson);
-      localStorage.setItem("count", setCount);
       this.name = "";
     },
     increment(todo) {
       todo.count++;
+      let setJson = JSON.stringify(this.todos);
+      localStorage.setItem("todos", setJson);
     },
     decrement(todo) {
       if (todo.count > 0) {
         todo.count--;
       }
+      let setJson = JSON.stringify(this.todos);
+      localStorage.setItem("todos", setJson);
     },
     deleteItem(index) {
       this.todos.splice(index, 1);
