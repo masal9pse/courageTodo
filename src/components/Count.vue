@@ -11,7 +11,7 @@
           <v-card card_id max-width="344" class="mx-auto">
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
-              <v-text-field label="メモ" v-model="todo.memo"></v-text-field>
+              <v-text-field label="メモ" v-model="todo.memo" @keydown.prevent="addMemo"></v-text-field>
             </v-card-text>
             <v-card-actions>
               <v-btn @click="increment(todo)" color="primary">さぼり回数</v-btn>
@@ -33,19 +33,21 @@ export default {
       count: 0,
       name: "",
       todos: [],
-      memo: ""
+      memo: []
     };
   },
   mounted() {
     this.todos = JSON.parse(localStorage.getItem("todos")) || [];
-    if (localStorage.memo) this.memo = localStorage.memo;
-  },
-  watch: {
-    memo(newMemo) {
-      localStorage.memo = newMemo;
-    }
   },
   methods: {
+    templateJson() {
+      let setJson = JSON.stringify(this.todos);
+      localStorage.setItem("todos", setJson);
+    },
+    addMemo() {
+      this.templateJson();
+      this.isActive = false;
+    },
     addTodo() {
       if (this.name != "") {
         this.todos.push({
@@ -53,28 +55,23 @@ export default {
           count: 0
         });
       }
-
-      let setJson = JSON.stringify(this.todos);
-      localStorage.setItem("todos", setJson);
+      this.templateJson();
       this.name = "";
     },
     increment(todo) {
       todo.count++;
-      let setJson = JSON.stringify(this.todos);
-      localStorage.setItem("todos", setJson);
+      this.templateJson();
     },
     decrement(todo) {
       if (todo.count > 0) {
         todo.count--;
       }
-      let setJson = JSON.stringify(this.todos);
-      localStorage.setItem("todos", setJson);
+      this.templateJson();
     },
     deleteItem(index) {
       this.todos.splice(index, 1);
-      let setJson = JSON.stringify(this.todos);
+      this.templateJson();
       localStorage.removeItem("todos");
-      localStorage.setItem("todos", setJson);
     }
   }
 };
