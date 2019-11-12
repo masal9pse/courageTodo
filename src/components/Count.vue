@@ -11,7 +11,7 @@
           <v-card card_id max-width="344" class="mx-auto">
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
-              <v-text-field label="メモ" v-model="todo.memo" @mouseleave="addMemo"></v-text-field>
+              <v-text-field label="メモ" v-model="todo.memo" @keydown.prevent="addMemo"></v-text-field>
             </v-card-text>
             <v-card-actions>
               <v-btn @click="increment(todo)" color="primary">さぼり回数</v-btn>
