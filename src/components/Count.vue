@@ -11,7 +11,7 @@
           <v-card card_id max-width="344" class="mx-auto">
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
-              <v-text-field label="メモ" v-model="todo.memo"></v-text-field>
+              <v-text-field label="メモ" v-model="todo.memo" @mouseleave="addMemo"></v-text-field>
             </v-card-text>
             <v-card-actions>
               <v-btn @click="increment(todo)" color="primary">さぼり回数</v-btn>
@@ -33,19 +33,18 @@ export default {
       count: 0,
       name: "",
       todos: [],
-      memo: ""
+      memo: []
     };
   },
   mounted() {
     this.todos = JSON.parse(localStorage.getItem("todos")) || [];
-    if (localStorage.memo) this.memo = localStorage.memo;
-  },
-  watch: {
-    memo(newMemo) {
-      localStorage.memo = newMemo;
-    }
   },
   methods: {
+    addMemo() {
+      let setJson = JSON.stringify(this.todos);
+      localStorage.setItem("todos", setJson);
+      this.isActive = false;
+    },
     addTodo() {
       if (this.name != "") {
         this.todos.push({
