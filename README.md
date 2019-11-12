@@ -1,8 +1,6 @@
 # couragetodo
 さぼり回数をカウントできるアプリです。
 
-現状の予定　
-メモを入力すると、全部更新してしまうので直す。
  https://i.stack.imgur.com/fJ5W1.png
    https://i.stack.imgur.com/GGlcZ.png
 ## Project setup
