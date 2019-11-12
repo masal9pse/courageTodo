@@ -40,9 +40,12 @@ export default {
     this.todos = JSON.parse(localStorage.getItem("todos")) || [];
   },
   methods: {
-    addMemo() {
+    templateJson() {
       let setJson = JSON.stringify(this.todos);
       localStorage.setItem("todos", setJson);
+    },
+    addMemo() {
+      this.templateJson();
       this.isActive = false;
     },
     addTodo() {
@@ -52,28 +55,23 @@ export default {
           count: 0
         });
       }
-
-      let setJson = JSON.stringify(this.todos);
-      localStorage.setItem("todos", setJson);
+      this.templateJson();
       this.name = "";
     },
     increment(todo) {
       todo.count++;
-      let setJson = JSON.stringify(this.todos);
-      localStorage.setItem("todos", setJson);
+      this.templateJson();
     },
     decrement(todo) {
       if (todo.count > 0) {
         todo.count--;
       }
-      let setJson = JSON.stringify(this.todos);
-      localStorage.setItem("todos", setJson);
+      this.templateJson();
     },
     deleteItem(index) {
       this.todos.splice(index, 1);
-      let setJson = JSON.stringify(this.todos);
+      this.templateJson();
       localStorage.removeItem("todos");
-      localStorage.setItem("todos", setJson);
     }
   }
 };
