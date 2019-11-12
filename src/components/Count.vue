@@ -70,8 +70,9 @@ export default {
     },
     deleteItem(index) {
       this.todos.splice(index, 1);
-      this.templateJson();
+      let setJson = JSON.stringify(this.todos);
       localStorage.removeItem("todos");
+      localStorage.setItem("todos", setJson);
     }
   }
 };
