@@ -3,7 +3,7 @@
     <v-list class="pa-1">
       <v-list-item avatar>
         <v-list-item-avatar>
-          <img
+          <v-img
             src="https://user-images.githubusercontent.com/51937772/68997336-95fc5b80-08e8-11ea-98ba-3a6751861205.png"
           />
         </v-list-item-avatar>
@@ -17,10 +17,11 @@
     <v-list class="pt-0" dense>
       <v-divider></v-divider>
 
-      <v-list-item v-for="item in items" :key="item.title" :to="item.link">
-        <v-list-item-action>
+      <v-list-item v-for="item in items" :key="item.title">
+        <!-- v-list-item-actionは2.0系だとエラーになる -->
+        <v-list-item-icon>
           <v-icon color="info">{{ item.icon }}</v-icon>
-        </v-list-item-action>
+        </v-list-item-icon>
 
         <v-list-item-content>
           <v-list-item-title>{{ item.title }}</v-list-item-title>
