@@ -1,8 +1,12 @@
 # couragetodo
 さぼり回数をカウントできるアプリです。
 
- https://i.stack.imgur.com/fJ5W1.png
-   https://i.stack.imgur.com/GGlcZ.png
+現状の予定　
+vuex化する、
+mounted以外をグローバルにする。
+とりあえず、dataだけをストアに格納して変更点を書き換えた。
+問題点（とはいえ、別にUXに影響はない）
+同じ授業名を入力すると、重複エラーになる。
 ## Project setup
 ```
 yarn install

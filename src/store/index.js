@@ -5,7 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    drawer: false
+    drawer: false,
+    count: 0,
+    name: "",
+    todos: [],
+    memo: []
   },
   mutations: {
     toggleSideMenu(state) {

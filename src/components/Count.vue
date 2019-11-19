@@ -4,10 +4,10 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <v-text-field v-model="name" label="授業名" @keyup.enter="addTodo" required></v-text-field>
+            <v-text-field v-model="$store.state.name" label="授業名" @keyup.enter="addTodo" required></v-text-field>
           </v-col>
         </v-row>
-        <div v-for="(todo,index) in todos" :key="todo.name">
+        <div v-for="(todo,index) in ($store.state.todos)" :key="todo.name">
           <v-card card_id max-width="344" class="mx-auto">
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
@@ -29,20 +29,16 @@
 <script>
 export default {
   data() {
-    return {
-      count: 0,
-      name: "",
-      todos: [],
-      memo: []
-    };
+    return {};
   },
   mounted() {
-    this.todos = JSON.parse(localStorage.getItem("todos")) || [];
+    this.$store.state.todos =
+      JSON.parse(localStorage.getItem("this.$store.state.todos")) || [];
   },
   methods: {
     templateJson() {
-      let setJson = JSON.stringify(this.todos);
-      localStorage.setItem("todos", setJson);
+      let setJson = JSON.stringify(this.$store.state.todos);
+      localStorage.setItem("this.$store.state.todos", setJson);
     },
     addMemo() {
       this.templateJson();
@@ -50,13 +46,13 @@ export default {
     },
     addTodo() {
       if (this.name != "") {
-        this.todos.push({
-          name: this.name,
-          count: 0
+        this.$store.state.todos.push({
+          name: this.$store.state.name,
+          count: this.$store.state.count
         });
       }
       this.templateJson();
-      this.name = "";
+      this.$store.state.name = "";
     },
     increment(todo) {
       todo.count++;
@@ -69,10 +65,10 @@ export default {
       this.templateJson();
     },
     deleteItem(index) {
-      this.todos.splice(index, 1);
-      let setJson = JSON.stringify(this.todos);
-      localStorage.removeItem("todos");
-      localStorage.setItem("todos", setJson);
+      this.$store.state.todos.splice(index, 1);
+      let setJson = JSON.stringify(this.$store.state.todos);
+      localStorage.removeItem("this.$store.state.todos");
+      localStorage.setItem("this.$store.state.todos", setJson);
     }
   }
 };
