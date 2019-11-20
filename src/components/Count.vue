@@ -27,49 +27,24 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {};
   },
   mounted() {
-    this.$store.state.todos =
-      JSON.parse(localStorage.getItem("this.$store.state.todos")) || [];
+    this.$store.commit("setTodos");
   },
   methods: {
-    templateJson() {
-      let setJson = JSON.stringify(this.$store.state.todos);
-      localStorage.setItem("this.$store.state.todos", setJson);
-    },
-    addMemo() {
-      this.templateJson();
-      this.isActive = false;
-    },
-    addTodo() {
-      if (this.name != "") {
-        this.$store.state.todos.push({
-          name: this.$store.state.name,
-          count: this.$store.state.count
-        });
-      }
-      this.templateJson();
-      this.$store.state.name = "";
-    },
-    increment(todo) {
-      todo.count++;
-      this.templateJson();
-    },
-    decrement(todo) {
-      if (todo.count > 0) {
-        todo.count--;
-      }
-      this.templateJson();
-    },
-    deleteItem(index) {
-      this.$store.state.todos.splice(index, 1);
-      let setJson = JSON.stringify(this.$store.state.todos);
-      localStorage.removeItem("this.$store.state.todos");
-      localStorage.setItem("this.$store.state.todos", setJson);
-    }
+    ...mapActions([
+      "templateJson",
+      "increment",
+      "decrement",
+      "addMemo",
+      "addTodo",
+      "deleteItem"
+    ])
   }
 };
 </script>
