@@ -17,9 +17,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    // toggleSideMenu(state) {
-    //   state.drawer = !state.drawer
-    // },
+    toggleSideMenu(state) {
+      state.drawer = !state.drawer
+    },
     templateJson(state) {
       state.todos = JSON.parse(localStorage.getItem("state.todos")) || [];
       let setJson = JSON.stringify(state.todos);
