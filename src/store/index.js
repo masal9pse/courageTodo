@@ -11,22 +11,24 @@ export default new Vuex.Store({
     todos: [],
     memo: []
   },
-  getters: {
-    getItemJson(state) {
-      state.todo = JSON.parse(localStorage.getItem("state.todos")) || [];
-    }
-  },
+  // getters: {
+  //   getItemJson() {
+  //     return JSON.parse(localStorage.getItem("state.todos")) || [];
+  //   }
+  // },
   mutations: {
     toggleSideMenu(state) {
       state.drawer = !state.drawer
     },
-    templateJson(state) {
+    setTodos(state) {
       state.todos = JSON.parse(localStorage.getItem("state.todos")) || [];
+    },
+    templateJson(state) {
       let setJson = JSON.stringify(state.todos);
       localStorage.setItem("state.todos", setJson);
     },
-    addMemo() {
-      this.templateJson();
+    addMemo(state) {
+      state.templateJson();
       this.isActive = false;
     },
     addTodo(state) {
@@ -37,15 +39,15 @@ export default new Vuex.Store({
         });
       }
       state.name = "";
+      state.templateJson;
+    },
+    increment(state, todo) {
+      todo.count++;
       this.templateJson();
     },
-    increment(state) {
-      state.count++;
-      this.templateJson();
-    },
-    decrement(state) {
-      if (state.count > 0) {
-        state.count--;
+    decrement(state, todo) {
+      if (todo.count > 0) {
+        todo.count--;
       }
       this.templateJson();
     },
@@ -72,11 +74,11 @@ export default new Vuex.Store({
     deleteItem({ commit }, index) {
       commit("deleteItem", index)
     },
-    increment({ commit }, state) {
-      commit("increment", state)
+    increment({ commit }, todo) {
+      commit("increment", todo)
     },
-    decrement({ commit }, state) {
-      commit("decrement", state)
+    decrement({ commit }, todo) {
+      commit("decrement", todo)
     },
   }
 })

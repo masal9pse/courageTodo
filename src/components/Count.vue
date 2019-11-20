@@ -28,22 +28,15 @@
 
 <script>
 import { mapActions } from "vuex";
-// import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {};
   },
   mounted() {
-    this.$store.state.todos = this.$store.getters.getItemJson;
-  //   this.$store.state.todos =
-  //     JSON.parse(localStorage.getItem("this.$store.state.todos")) || [];
+    this.$store.commit("setTodos");
   },
   methods: {
-    // templateJson() {
-    //   let setJson = JSON.stringify(this.$store.state.todos);
-    //   localStorage.setItem("this.$store.state.todos", setJson);
-    // },
     ...mapActions([
       "templateJson",
       "increment",
