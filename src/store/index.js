@@ -11,11 +11,6 @@ export default new Vuex.Store({
     todos: [],
     memo: []
   },
-  // getters: {
-  //   getItemJson() {
-  //     return JSON.parse(localStorage.getItem("state.todos")) || [];
-  //   }
-  // },
   mutations: {
     toggleSideMenu(state) {
       state.drawer = !state.drawer
@@ -23,12 +18,13 @@ export default new Vuex.Store({
     setTodos(state) {
       state.todos = JSON.parse(localStorage.getItem("state.todos")) || [];
     },
-    templateJson(state) {
+    setItemJson(state) {
       let setJson = JSON.stringify(state.todos);
       localStorage.setItem("state.todos", setJson);
     },
     addMemo(state) {
-      state.templateJson();
+      let setJson = JSON.stringify(state.todos);
+      localStorage.setItem("state.todos", setJson);
       this.isActive = false;
     },
     addTodo(state) {
@@ -39,17 +35,20 @@ export default new Vuex.Store({
         });
       }
       state.name = "";
-      state.templateJson;
+      let setJson = JSON.stringify(state.todos);
+      localStorage.setItem("state.todos", setJson);
     },
     increment(state, todo) {
       todo.count++;
-      this.templateJson();
+      let setJson = JSON.stringify(state.todos);
+      localStorage.setItem("state.todos", setJson);
     },
     decrement(state, todo) {
       if (todo.count > 0) {
         todo.count--;
       }
-      this.templateJson();
+      let setJson = JSON.stringify(state.todos);
+      localStorage.setItem("state.todos", setJson);
     },
     deleteItem(state, index) {
       state.todos.splice(index, 1);
