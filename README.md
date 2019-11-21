@@ -3,9 +3,10 @@
 
 現状の予定　
 vuex化する、
-templateJsonメソッドをミューテーションメソッドで使いましたいが、this.templateJson()だと、エラーで使えないのでなんとかしたい。
+➀templateJsonメソッドをミューテーションメソッドで使いましたいが、this.templateJson()だと、エラーで使えないのでなんとかしたい。
 
-問題点（とはいえ、別にUXに影響はない）
+➁モジュールモードにして分割したい。
+
 ## Project setup
 ```
 yarn install
