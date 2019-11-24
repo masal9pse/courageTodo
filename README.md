@@ -3,10 +3,10 @@
 
 現状の予定　
 vuex化する、
-mounted以外をveuxにしたい。
+➀templateJsonメソッドをミューテーションメソッドで使いましたいが、this.templateJson()だと、エラーで使えないのでなんとかしたい。
 
-問題点（とはいえ、別にUXに影響はない）
-同じ授業名を入力すると、重複エラーになる。
+➁モジュールモードにして分割したい。
+
 ## Project setup
 ```
 yarn install
