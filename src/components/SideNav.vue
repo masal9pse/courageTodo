@@ -4,12 +4,12 @@
       <v-list-item avatar>
         <v-list-item-avatar>
           <v-img
-            src="https://user-images.githubusercontent.com/51937772/68997336-95fc5b80-08e8-11ea-98ba-3a6751861205.png"
+            src="https://user-images.githubusercontent.com/51937772/69498113-a4212c00-0f27-11ea-9840-31534e5867b1.jpg"
           />
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>Alone Production</v-list-item-title>
+          <v-list-item-title>Masato</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -36,9 +36,9 @@ export default {
   data() {
     return {
       items: [
-        { title: "ホーム", icon: "mdi-domain", link: { name: "home" } },
+        { title: "練習", icon: "mdi-domain", link: { name: "home" } },
         {
-          title: "連絡先一覧",
+          title: "練習",
           icon: "mdi-message-text",
           link: { name: "addresses" }
         }
