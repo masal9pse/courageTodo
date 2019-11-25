@@ -38,7 +38,7 @@ export default {
       items: [
         { title: "練習", icon: "mdi-domain", link: { name: "home" } },
         {
-          title: "練習",
+          title: "検証",
           icon: "mdi-message-text",
           link: { name: "addresses" }
         }
