@@ -18,6 +18,11 @@ export default new Vuex.Store({
     templateJson(state) {
       let setJson = JSON.stringify(state.todos);
       localStorage.setItem("state.todos", setJson);
+    },
+    templateJsonz(state) {
+      let setJson = JSON.stringify(state.todos);
+      localStorage.removeItem("state.todos");
+      localStorage.setItem("state.todos", setJson);
     }
   },
   actions: {
@@ -26,6 +31,9 @@ export default new Vuex.Store({
     },
     templateJson({ commit }) {
       commit("templateJson")
+    },
+    templateJsonz({ commit }) {
+      commit("templateJsonz")
     }
   }
 })

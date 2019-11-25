@@ -41,7 +41,7 @@ export default {
     this.$store.commit("setTodos");
   },
   methods: {
-    ...mapActions(["templateJson"]),
+    ...mapActions(["templateJson", "templateJsonz"]),
     addMemo() {
       this.templateJson();
       this.isActive = false;
@@ -67,10 +67,8 @@ export default {
       this.templateJson();
     },
     deleteItem(index) {
-      this.todos.splice(index, 1);
-      let setJson = JSON.stringify(this.todos);
-      localStorage.removeItem("this.todos");
-      localStorage.setItem("this.todos", setJson);
+      this.$store.state.todos.splice(index, 1);
+      this.templateJsonz();
     }
   }
 };
