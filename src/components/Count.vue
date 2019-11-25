@@ -4,7 +4,7 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <v-text-field v-model="$store.state.name" label="授業名" @keyup.enter="addTodo" required></v-text-field>
+            <v-text-field v-model="name" label="授業名" @keyup.enter="addTodo" required></v-text-field>
           </v-col>
         </v-row>
         <div v-for="(todo,index) in ($store.state.todos)" :key="todo.name">
@@ -31,20 +31,47 @@ import { mapActions } from "vuex";
 
 export default {
   data() {
-    return {};
+    return {
+      count: 0,
+      name: "",
+      memo: []
+    };
   },
   mounted() {
     this.$store.commit("setTodos");
   },
   methods: {
-    ...mapActions([
-      "templateJson",
-      "increment",
-      "decrement",
-      "addMemo",
-      "addTodo",
-      "deleteItem"
-    ])
+    ...mapActions(["templateJson"]),
+    addMemo() {
+      this.templateJson();
+      this.isActive = false;
+    },
+    addTodo() {
+      if (this.name != "") {
+        this.$store.state.todos.push({
+          name: this.name,
+          count: this.count
+        });
+      }
+      this.name = "";
+      this.templateJson();
+    },
+    increment(todo) {
+      todo.count++;
+      this.templateJson();
+    },
+    decrement(todo) {
+      if (todo.count > 0) {
+        todo.count--;
+      }
+      this.templateJson();
+    },
+    deleteItem(index) {
+      this.todos.splice(index, 1);
+      let setJson = JSON.stringify(this.todos);
+      localStorage.removeItem("this.todos");
+      localStorage.setItem("this.todos", setJson);
+    }
   }
 };
 </script>
