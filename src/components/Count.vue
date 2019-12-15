@@ -7,7 +7,7 @@
             <v-text-field v-model="name" label="授業名" @keyup.enter="addTodo" required></v-text-field>
           </v-col>
         </v-row>
-        <div v-for="(todo,index) in ($store.state.todos)" :key="todo.name">
+        <div v-for="(todo,index) in todos" :key="todo.name">
           <v-card card_id max-width="344" class="mx-auto">
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
@@ -27,28 +27,41 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-
 export default {
   data() {
     return {
       count: 0,
       name: "",
-      memo: []
+      memo: [],
+      todos: [
+        {
+          count: 0,
+          name: "sample",
+          memo: []
+        }
+      ]
     };
   },
   mounted() {
-    this.$store.commit("setTodos");
+    this.todos = JSON.parse(localStorage.getItem("this.todos")) || [];
   },
   methods: {
-    ...mapActions(["templateJson", "templateJsonz"]),
+    templateJson() {
+      let setJson = JSON.stringify(this.todos);
+      localStorage.setItem("this.todos", setJson);
+    },
+    templateJsonz() {
+      let setJson = JSON.stringify(this.todos);
+      localStorage.removeItem("this.todos");
+      localStorage.setItem("this.todos", setJson);
+    },
     addMemo() {
       this.templateJson();
       this.isActive = false;
     },
     addTodo() {
       if (this.name != "") {
-        this.$store.state.todos.push({
+        this.todos.push({
           name: this.name,
           count: this.count
         });
@@ -67,7 +80,7 @@ export default {
       this.templateJson();
     },
     deleteItem(index) {
-      this.$store.state.todos.splice(index, 1);
+      this.todos.splice(index, 1);
       this.templateJsonz();
     }
   }
