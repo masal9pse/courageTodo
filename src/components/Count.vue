@@ -4,7 +4,13 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <v-text-field v-model="name" label="授業名" @keyup.enter="addTodo" required></v-text-field>
+            <v-text-field
+              v-model="name"
+              label="授業名"
+              @keyup.enter="addTodo"
+              @click="addTodo"
+              required
+            ></v-text-field>
           </v-col>
         </v-row>
         <div v-for="(todo,index) in todos" :key="todo.name">
@@ -33,13 +39,7 @@ export default {
       count: 0,
       name: "",
       memo: [],
-      todos: [
-        {
-          count: 0,
-          name: "sample",
-          memo: []
-        }
-      ]
+      todos: []
     };
   },
   mounted() {
