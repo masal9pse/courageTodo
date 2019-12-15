@@ -13,8 +13,10 @@
             ></v-text-field>
           </v-col>
         </v-row>
+        <Sample />
         <div v-for="(todo,index) in todos" :key="todo.name">
           <v-card card_id max-width="344" class="mx-auto">
+            <!-- <Sample /> -->
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
               <v-text-field label="メモ" v-model="todo.memo" @input="addMemo"></v-text-field>
@@ -33,6 +35,8 @@
 </template>
 
 <script>
+import Sample from "./Sample";
+
 export default {
   data() {
     return {
@@ -41,6 +45,9 @@ export default {
       memo: [],
       todos: []
     };
+  },
+  components: {
+    Sample
   },
   mounted() {
     this.todos = JSON.parse(localStorage.getItem("this.todos")) || [];
