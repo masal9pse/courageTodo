@@ -7,6 +7,7 @@
             <v-text-field v-model="name" label="授業名" @keyup.enter="addTodo" required></v-text-field>
           </v-col>
         </v-row>
+        <v-flex>
           <v-card card_id max-width="344" class="mx-auto">
             <v-card-title>sample</v-card-title>
             <v-card-text>
@@ -32,6 +33,7 @@
               <v-btn @click="deleteItem(index)">削除</v-btn>
             </v-card-actions>
           </v-card>
+          </v-flex>
         </div>
       </v-container>
     </v-content>
