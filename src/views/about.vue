@@ -1,1 +1,3 @@
-aaaaa
+<template>
+  <p>aaaaa</p>
+</template>
