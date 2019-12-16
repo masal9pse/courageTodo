@@ -13,22 +13,22 @@
             ></v-text-field>
           </v-col>
         </v-row>
-        <Sample />
+
         <div v-for="(todo,index) in todos" :key="todo.name">
           <v-card card_id max-width="344" class="mx-auto">
-            <!-- <Sample /> -->
             <v-card-title>{{todo.name}}</v-card-title>
             <v-card-text>
               <v-text-field label="メモ" v-model="todo.memo" @input="addMemo"></v-text-field>
             </v-card-text>
             <v-card-actions>
-              <v-btn @click="increment(todo)" color="primary">さぼり回数</v-btn>
+              <v-btn @click="increment(todo)" color="primary">さぼり回数(+)</v-btn>
               <span>{{ todo.count }}</span>
-              <v-btn @click="decrement(todo)" color="error">間違い（－）</v-btn>
+              <v-btn @click="decrement(todo)" color="error">間違い(-)</v-btn>
               <v-btn @click="deleteItem(index)">削除</v-btn>
             </v-card-actions>
           </v-card>
         </div>
+        <Sample />
       </v-container>
     </v-content>
   </v-app>
