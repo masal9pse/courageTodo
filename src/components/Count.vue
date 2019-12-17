@@ -16,7 +16,7 @@
 
         <div v-for="(todo,index) in todos" :key="todo.name">
           <v-card card_id max-width="344" class="mx-auto">
-            <v-card-title>sample</v-card-title>
+            <v-card-title>{{ todo.name }}</v-card-title>
             <v-card-text>
               <v-text-field label="メモ" v-model="todo.memo" @input="addMemo"></v-text-field>
             </v-card-text>

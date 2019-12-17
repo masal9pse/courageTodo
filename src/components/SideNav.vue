@@ -19,14 +19,17 @@
 
       <v-list-item v-for="item in items" :key="item.title">
         <!-- v-list-item-actionは2.0系だとエラーになる -->
+
         <v-list-item-icon>
           <v-icon color="info">{{ item.icon }}</v-icon>
         </v-list-item-icon>
-
         <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-title>
+            <router-link to="/about">{{ item.title }}</router-link>
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+      <router-view></router-view>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -43,6 +46,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    pageGet() {
+      this.$router.push({ name: "about" });
+    }
   }
 };
 </script>
