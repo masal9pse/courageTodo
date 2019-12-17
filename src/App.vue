@@ -13,8 +13,10 @@
           <v-tab>トーク</v-tab>
         </v-tabs>
       </v-app-bar>
-      <SideNav />
-      <Count />
+      <v-content>
+        <SideNav />
+        <Count />
+      </v-content>
     </div>
   </v-app>
 </template>

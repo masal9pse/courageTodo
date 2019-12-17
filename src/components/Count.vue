@@ -13,9 +13,9 @@
             ></v-text-field>
           </v-col>
         </v-row>
-
+        <!-- 色変更できない -->
         <div v-for="(todo,index) in todos" :key="todo.name">
-          <v-card card_id max-width="344" class="mx-auto">
+          <v-card card_id max-width="344" class="mx-auto pt-6">
             <v-card-title>{{ todo.name }}</v-card-title>
             <v-card-text>
               <v-text-field label="メモ" v-model="todo.memo" @input="addMemo"></v-text-field>
@@ -28,7 +28,7 @@
             </v-card-actions>
           </v-card>
         </div>
-        <Sample />
+        <Sample class="mt-5" />
       </v-container>
     </v-content>
   </v-app>
