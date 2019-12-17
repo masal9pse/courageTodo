@@ -13,7 +13,9 @@
             ></v-text-field>
           </v-col>
         </v-row>
-        <!-- 色変更できない -->
+        <v-card card_id width="348" class="mx-auto mb-5">
+          <v-card-title>授業名を入力してください</v-card-title>
+        </v-card>
         <div v-for="(todo,index) in todos" :key="todo.name">
           <v-card card_id max-width="344" class="mx-auto pt-6">
             <v-card-title>{{ todo.name }}</v-card-title>
@@ -28,15 +30,12 @@
             </v-card-actions>
           </v-card>
         </div>
-        <Sample class="mt-5" />
       </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Sample from "./Sample";
-
 export default {
   data() {
     return {
@@ -45,9 +44,6 @@ export default {
       memo: [],
       todos: []
     };
-  },
-  components: {
-    Sample
   },
   mounted() {
     this.todos = JSON.parse(localStorage.getItem("this.todos")) || [];
