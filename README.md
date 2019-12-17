@@ -1,6 +1,16 @@
 # couragetodo
 さぼり回数をカウントできるアプリです。
 
+# 機能一覧
+1. CRUD機能
+2. ページ機能(予定)
+3. データ永続化機能
+# 技術一覧
+言語. Js
+FW  Vue
+DB jsのlocalStorage機能
+デプロイツール　NetlifyのCDを使ってpush直後に自動デプロイ
+
 # 現状の予定　
 vuex化する、
 ➀templateJsonメソッドをミューテーションメソッドで使いましたいが、this.templateJson()だと、エラーで使えないのでなんとかしたい。
