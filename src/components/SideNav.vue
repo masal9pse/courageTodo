@@ -20,7 +20,7 @@
       <v-list-item v-for="item in items" :key="item.title" :to="item.link">
         <!-- v-list-item-actionは2.0系だとエラーになる -->
         <v-list-item-icon>
-          <v-icon color="info">{{ item.icon }}</v-icon>
+          <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>{{item.title}}</v-list-item-title>
