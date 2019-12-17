@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="$store.state.drawer" absolute temporary>
+  <v-navigation-drawer v-model="$store.state.drawer" absolute temporary class="purple">
     <v-list class="pa-1">
       <v-list-item avatar>
         <v-list-item-avatar>
@@ -23,7 +23,7 @@
           <v-icon color="info">{{ item.icon }}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-title class="blue lighten-4">{{ item.title }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
