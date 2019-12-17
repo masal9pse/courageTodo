@@ -17,19 +17,15 @@
     <v-list class="pt-0" dense>
       <v-divider></v-divider>
 
-      <v-list-item v-for="item in items" :key="item.title">
+      <v-list-item v-for="item in items" :key="item.title" :to="item.link">
         <!-- v-list-item-actionは2.0系だとエラーになる -->
-
         <v-list-item-icon>
           <v-icon color="info">{{ item.icon }}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>
-            <router-link to="/about">{{ item.title }}</router-link>
-          </v-list-item-title>
+          <v-list-item-title>{{item.title}}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <router-view></router-view>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -39,10 +35,11 @@ export default {
   data() {
     return {
       items: [
-        { title: "練習", icon: "mdi-domain" },
+        { title: "練習", icon: "mdi-domain", link: { name: "about" } },
         {
           title: "検証",
-          icon: "mdi-message-text"
+          icon: "mdi-message-text",
+          link: { name: "app" }
         }
       ]
     };
