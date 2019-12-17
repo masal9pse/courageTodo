@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="$store.state.drawer" absolute temporary class="purple">
+  <v-navigation-drawer v-model="$store.state.drawer" absolute temporary>
     <v-list class="pa-1">
       <v-list-item avatar>
         <v-list-item-avatar>
@@ -17,13 +17,13 @@
     <v-list class="pt-0" dense>
       <v-divider></v-divider>
 
-      <v-list-item v-for="item in items" :key="item.title">
+      <v-list-item v-for="item in items" :key="item.title" :to="item.link">
         <!-- v-list-item-actionは2.0系だとエラーになる -->
         <v-list-item-icon>
           <v-icon color="info">{{ item.icon }}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title class="blue lighten-4">{{ item.title }}</v-list-item-title>
+          <v-list-item-title>{{item.title}}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -39,7 +39,7 @@ export default {
         {
           title: "検証",
           icon: "mdi-message-text",
-          link: { name: "about" }
+          link: { name: "app" }
         }
       ]
     };
