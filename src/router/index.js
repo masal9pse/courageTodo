@@ -12,12 +12,12 @@ export default new Router({
         {
             path: '/',
             name: 'count',
-            components: Count
+            component: Count
         },
         {
             path: '/about',
             name: 'about',
-            components: About
+            component: About
         },
     ]
 })                                                                                                                                                                                                                                              
