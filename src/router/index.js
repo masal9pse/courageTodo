@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import About from '../views/About.vue'
-import App from '../App.vue'
+import Count from '../views/Count.vue'
 
 Vue.use(Router)
 
@@ -11,13 +11,13 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'app',
-            component: App
+            name: 'count',
+            components: Count
         },
         {
             path: '/about',
             name: 'about',
-            component: About
+            components: About
         },
     ]
 })                                                                                                                                                                                                                                              

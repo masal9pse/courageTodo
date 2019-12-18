@@ -1,3 +1,11 @@
 <template>
-  <p>aaaaa</p>
+  <div id="about">
+    <p>aaaaa</p>
+  </div>
 </template>
+
+<script>
+export default {
+  name: "about"
+};
+</script>
