@@ -1,5 +1,5 @@
 # couragetodo
-欠席回数をカウントできるアプリです。
+###欠席回数をカウントできるアプリです。
 
 ![スクリーンショット (73).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/439295/4155f122-a8e9-5788-7640-05476689f1f8.png)
 
@@ -8,19 +8,17 @@
 2. ページ遷移機能(予定)
 3. データ永続化機能
 # 技術一覧
-言語. Js
+-言語. Js
 
+-FW  Vue
 
-FW  Vue
+-デプロイツール　Netlify
 
-
-DB jsのlocalStorage機能
-
-
-デプロイツール　Netlify
+-その他技術一覧
+vuetify,vue-router,vuex,git command,firebase(予定)
 
 # 現状の予定　
-- 雑談できる機能と追加する。DBにはfirebase、認証は用いない。とりあえず匿名で。
+- 雑談できる機能を追加する。DBにはfirebase、認証は用いない。とりあえず匿名で。
  
 
 
