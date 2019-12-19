@@ -1,32 +1,33 @@
 <template>
   <v-app>
-    <div>
-      <v-app-bar app>
-        <v-app-bar-nav-icon @click="toggleSideMenu"></v-app-bar-nav-icon>
-        <v-toolbar-title class="headline text-uppercase">
-          <span class="font-weight-light">Vacation Counter</span>
-        </v-toolbar-title>
-        <v-spacer></v-spacer>
-      </v-app-bar>
-      <SideNav />
-      <v-content>
-        <div id="nav">
-          <router-link to="/">count</router-link>|
-          <router-link to="/about">about</router-link>|
-          <router-view />
-        </div>
-      </v-content>
-    </div>
+    <SideNav />
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="toggleSideMenu"></v-app-bar-nav-icon>
+      <v-toolbar-title class="headline text-uppercase">
+        <span class="font-weight-light">Vacation Counter</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <!-- <v-tabs align-with-title background-color="transparent">
+        <v-tab>本編</v-tab>
+        <v-tab>雑談</v-tab>
+        <v-tab>トーク</v-tab>
+      </v-tabs>-->
+    </v-app-bar>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
   </v-app>
 </template>
 
 <script>
 import { mapActions } from "vuex";
 
+// import Count from "./components/Count";
 import SideNav from "./components/SideNav";
 export default {
   name: "App",
   components: {
+    // Count,
     SideNav
   },
   methods: {

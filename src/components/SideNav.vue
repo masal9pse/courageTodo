@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="$store.state.drawer" absolute temporary>
+  <v-navigation-drawer v-model="$store.state.drawer" absolute temporary app>
     <v-list class="pa-1">
       <v-list-item avatar>
         <v-list-item-avatar>
@@ -35,10 +35,11 @@ export default {
   data() {
     return {
       items: [
-        { title: "練習", icon: "mdi-domain" },
+        { title: "カウント", icon: "mdi-domain", link: { name: "count" } },
         {
-          title: "検証",
-          icon: "mdi-message-text"
+          title: "説明",
+          icon: "mdi-message-text",
+          link: { name: "about" }
         }
       ]
     };

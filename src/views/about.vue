@@ -1,11 +1,11 @@
 <template>
-  <div id="about">
-    <p>aaaaa</p>
-  </div>
+  <p>欠席回数をカウントできるアプリです。</p>
 </template>
 
-<script>
-export default {
-  name: "about"
-};
-</script>
+<style scoped>
+p {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 30px;
+}
+</style>
