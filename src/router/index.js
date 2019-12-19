@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import About from '../views/About.vue'
-import Count from '../Count.vue'
+import Count from '../views/Count.vue'
 
 Vue.use(Router)
 
