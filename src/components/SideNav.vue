@@ -35,11 +35,11 @@ export default {
   data() {
     return {
       items: [
-        { title: "練習", icon: "mdi-domain", link: { name: "about" } },
+        { title: "カウント", icon: "mdi-domain", link: { name: "count" } },
         {
-          title: "検証",
+          title: "説明",
           icon: "mdi-message-text",
-          link: { name: "count" }
+          link: { name: "about" }
         }
       ]
     };
