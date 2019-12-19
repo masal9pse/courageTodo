@@ -24,7 +24,7 @@ DB jsのlocalStorage機能
  
 
 
-➁ モジュールモードで分割
+- モジュールモードで分割
 
 ## Project setup
 ```
