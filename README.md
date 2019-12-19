@@ -15,7 +15,7 @@ FW  Vue
 DB jsのlocalStorage機能
 
 
-デプロイツール　NetlifyのCDを使ってpush直後に自動デプロイ
+デプロイツール　Netlify
 
 # 現状の予定　
 - 雑談できる機能と追加する。DBにはfirebase、認証は用いない。とりあえず匿名で。
