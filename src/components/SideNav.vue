@@ -44,10 +44,6 @@ export default {
       ]
     };
   },
-  methods: {
-    pageGet() {
-      this.$router.push({ name: "about" });
-    }
-  }
+  methods: {}
 };
 </script>
